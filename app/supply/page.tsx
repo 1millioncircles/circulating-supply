@@ -36,7 +36,7 @@ export default async function SupplyPage() {
     >
       <div style={{ textAlign: "center" }}>
         <div style={{ fontSize: 14, opacity: 0.75, marginBottom: 8 }}>
-          Circulating Supply
+         Total Supply:
         </div>
         <div style={{ fontSize: 40, fontWeight: 800, lineHeight: 1.1 }}>
           {supply === null ? "Unavailable" : supply.toLocaleString()}
