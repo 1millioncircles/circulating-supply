@@ -22,6 +22,21 @@ export default async function SupplyPage() {
       ? Number(data.circulating_supply)
       : null;
 
+  const totalPhysical =
+    data && Number.isFinite(Number(data.total_physical_circles))
+      ? Number(data.total_physical_circles)
+      : null;
+
+  const circulatingPhysical =
+    data && Number.isFinite(Number(data.circulating_physical_circles))
+      ? Number(data.circulating_physical_circles)
+      : null;
+
+  const circulatingSheets =
+    data && Number.isFinite(Number(data.circulating_full_sheets))
+      ? Number(data.circulating_full_sheets)
+      : null;
+
   return (
     <main
       style={{
