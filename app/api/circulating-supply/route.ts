@@ -21,6 +21,11 @@ let cached:
 let cachedAt = 0;
 const TTL_MS = 60_000;
 
+// Physical mapping
+const TOKENS_PER_CIRCLE = 1000;   // 1000 $CIRCLES = 1 physical circle
+const CIRCLES_PER_SHEET = 10_000; // 10,000 physical circles per sheet
+const TOTAL_SHEETS = 100;         // total sheets in the project
+
 async function getVaultUiBalance(
   connection: Connection,
   vault: PublicKey,
@@ -75,11 +80,30 @@ export async function GET() {
 
     const circulating = Math.max(total - locked, 0);
 
-    cached = {
-      total_supply: total,
-      locked_supply: locked,
-      circulating_supply: circulating,
-    };
+// Convert token units -> physical units (whole numbers only)
+const total_physical_circles = TOTAL_SHEETS * CIRCLES_PER_SHEET; 
+
+const circulating_physical_circles = Math.floor(circulating / TOKENS_PER_CIRCLE);
+const locked_physical_circles = Math.floor(locked / TOKENS_PER_CIRCLE);
+
+const circulating_full_sheets = Math.floor(circulating_physical_circles / CIRCLES_PER_SHEET);
+const locked_full_sheets = Math.floor(locked_physical_circles / CIRCLES_PER_SHEET);
+
+
+  cached = {
+  total_supply: total,
+  locked_supply: locked,
+  circulating_supply: circulating,
+
+  total_physical_circles,
+  locked_physical_circles,
+  circulating_physical_circles,
+
+  total_sheets: TOTAL_SHEETS,
+  locked_full_sheets,
+  circulating_full_sheets,
+};
+
     cachedAt = Date.now();
 
     return Response.json(cached, {
