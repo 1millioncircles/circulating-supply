@@ -51,24 +51,39 @@ export default async function SupplyPage() {
         background: "transparent",
       }}
     >
-      <div style={{ textAlign: "center" }}>
-        <div style={{ marginBottom: 12 }}>
-          <div style={{ fontSize: 14, opacity: 0.75 }}>Total Supply</div>
-          <div style={{ fontSize: 32, fontWeight: 800 }}>
-            {total === null ? "Unavailable" : total.toLocaleString()}
-          </div>
-        </div>
+<div style={{ marginBottom: 24 }}>
+  <div style={{ fontSize: 14, opacity: 0.75 }}>Total Supply</div>
+
+  <div style={{ fontSize: 24, fontWeight: 800 }}>
+    {totalPhysical === null
+      ? "Unavailable"
+      : `${totalPhysical.toLocaleString()} physical circles`}
+  </div>
+
+  <div style={{ fontSize: 14, opacity: 0.65, marginTop: 4 }}>
+    {totalSheets === null
+      ? ""
+      : `${totalSheets.toLocaleString()} full sheets`}
+  </div>
+</div>
+
 
         <div>
-          <div style={{ fontSize: 14, opacity: 0.75 }}>
-            Circulating Supply
-          </div>
-          <div style={{ fontSize: 32, fontWeight: 800 }}>
-            {circulating === null
-              ? "Unavailable"
-              : circulating.toLocaleString()}
-          </div>
-        </div>
+  <div style={{ fontSize: 14, opacity: 0.75 }}>Circulating Supply</div>
+
+  <div style={{ fontSize: 24, fontWeight: 800 }}>
+    {circulatingPhysical === null
+      ? "Unavailable"
+      : `${circulatingPhysical.toLocaleString()} physical circles`}
+  </div>
+
+  <div style={{ fontSize: 14, opacity: 0.65, marginTop: 4 }}>
+    {circulatingSheets === null
+      ? ""
+      : `${circulatingSheets.toLocaleString()} full sheets`}
+  </div>
+</div>
+
       </div>
     </main>
   );
