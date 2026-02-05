@@ -13,11 +13,11 @@ const STREAMFLOW_VAULTS: string[] = [
   "DBm691avcmV45wTKhyEq2T1g1pHYuKjrQ1k2EKwCwoq3",
   "2LAk19b53kdGyvYq6igWr1QucMq2kDp9Vi8JMjiBTqVQ",
   "8cUrCtsnf3orqo94fDAgWWXVK6GY3yH68Wub3RdbiwEA",
+  "7JtJb3WSTRWxZgmFD7BSgMLtQ1NHKvAjt9LpErTTDfaF",
 ];
 
-let cached:
-  | { total_supply: number; locked_supply: number; circulating_supply: number }
-  | null = null;
+let cached: SupplyResponse | null = null;
+
 let cachedAt = 0;
 const TTL_MS = 60_000;
 
@@ -26,12 +26,26 @@ const TOKENS_PER_CIRCLE = 1000;   // 1000 $CIRCLES = 1 physical circle
 const CIRCLES_PER_SHEET = 10_000; // 10,000 physical circles per sheet
 const TOTAL_SHEETS = 100;         // total sheets in the project
 
+type SupplyResponse = {
+  total_supply: number;
+  locked_supply: number;
+  circulating_supply: number;
+
+  total_physical_circles: number;
+  locked_physical_circles: number;
+  circulating_physical_circles: number;
+
+  total_sheets: number;
+  locked_full_sheets: number;
+  circulating_full_sheets: number;
+};
+
 async function getVaultUiBalance(
   connection: Connection,
   vault: PublicKey,
   mint: PublicKey
 ): Promise<number> {
-  // Verify it is a token account and for the correct mint
+
   const info = await connection.getParsedAccountInfo(vault);
   const parsed: any = info.value?.data;
 
