@@ -2,6 +2,13 @@ import { Connection, PublicKey } from "@solana/web3.js";
 
 export const runtime = "nodejs";
 
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+
 const MINT_ADDRESS = "Aea8zJW7jp1wkct3BjMeekBC1RQnHQyrvNutigc3pump";
 
 // Streamflow vault token accounts
