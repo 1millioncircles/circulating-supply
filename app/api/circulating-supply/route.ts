@@ -13,6 +13,7 @@ const STREAMFLOW_VAULTS: string[] = [
   "DBm691avcmV45wTKhyEq2T1g1pHYuKjrQ1k2EKwCwoq3",
   "2LAk19b53kdGyvYq6igWr1QucMq2kDp9Vi8JMjiBTqVQ",
   "8cUrCtsnf3orqo94fDAgWWXVK6GY3yH68Wub3RdbiwEA",
+  "7JtJb3WSTRWxZgmFD7BSgMLtQ1NHKvAjt9LpErTTDfaF",
 ];
 
 let cached:
