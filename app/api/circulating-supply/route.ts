@@ -2,12 +2,6 @@ import { Connection, PublicKey } from "@solana/web3.js";
 
 export const runtime = "nodejs";
 
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
-
 
 const MINT_ADDRESS = "Aea8zJW7jp1wkct3BjMeekBC1RQnHQyrvNutigc3pump";
 
@@ -67,15 +61,11 @@ async function getVaultUiBalance(
 
 export async function GET() {
   try {
-if (cached && Date.now() - cachedAt < TTL_MS) {
-  return Response.json(cached, {
-    headers: {
-      ...CORS_HEADERS,
-      "Cache-Control": "s-maxage=60, stale-while-revalidate=300",
-    },
-  });
-}
-
+    if (cached && Date.now() - cachedAt < TTL_MS) {
+      return Response.json(cached, {
+        headers: { "Cache-Control": "s-maxage=60, stale-while-revalidate=300" },
+      });
+    }
 
     const rpcUrl =
       process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
@@ -135,13 +125,9 @@ const locked_full_sheets = Math.floor(locked_physical_circles / CIRCLES_PER_SHEE
       headers: { "Cache-Control": "s-maxage=60, stale-while-revalidate=300" },
     });
   } catch (err: any) {
- return Response.json(
-  { error: "Failed to compute supply", detail: err?.message || String(err) },
-  {
-    status: 500,
-    headers: {
-      ...CORS_HEADERS,
-    },
+    return Response.json(
+      { error: "Failed to compute supply", detail: err?.message || String(err) },
+      { status: 500 }
+    );
   }
-);
-
+}
