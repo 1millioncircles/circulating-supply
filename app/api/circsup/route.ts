@@ -1,5 +1,6 @@
 export const runtime = "nodejs";
 
+
 export async function GET(req: Request) {
   try {
     const host = req.headers.get("host");
