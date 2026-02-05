@@ -46,7 +46,7 @@ export default async function SupplyPage() {
       <div style={{ textAlign: "center", maxWidth: 560 }}>
         {/* TOTAL */}
         <div style={{ marginBottom: 28 }}>
-          <div style={{ opacity: 0.7, fontSize: 22 }}>Total Supply</div>
+          <div style={{ opacity: 0.7, fontSize: 22 }}>TOTAL REMAINING SUPPLY</div>
           <div style={{ fontSize: 44, fontWeight: 800, marginTop: 6 }}>
             {fmtDecimals(totalSupply)}
           </div>
@@ -61,7 +61,7 @@ export default async function SupplyPage() {
 
         {/* CIRCULATING */}
         <div>
-          <div style={{ opacity: 0.7, fontSize: 22 }}>Circulating Supply</div>
+          <div style={{ opacity: 0.7, fontSize: 22 }}>CIRCULATING SUPPLY</div>
           <div style={{ fontSize: 44, fontWeight: 800, marginTop: 6 }}>
             {fmtDecimals(circulatingSupply)}
           </div>
