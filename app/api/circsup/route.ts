@@ -15,7 +15,6 @@ export async function GET(req: Request) {
     const circulating = Number(data.circulating_supply);
     if (!Number.isFinite(circulating)) throw new Error("Invalid circulating_supply");
 
-    // CMC requires ONLY the number (no JSON, no labels)
     return new Response(String(circulating), {
       status: 200,
       headers: {
