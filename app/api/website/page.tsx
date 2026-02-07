@@ -39,7 +39,7 @@ export default async function SupplyPage() {
         justifyContent: "center",
         alignItems: "center",
         padding: 24,
-        background: "transparent",
+        background: "black",
         color: "white",
       }}
     >
