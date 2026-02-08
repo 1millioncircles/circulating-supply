@@ -15,8 +15,6 @@ const STREAMFLOW_VAULTS: string[] = [
   "2LAk19b53kdGyvYq6igWr1QucMq2kDp9Vi8JMjiBTqVQ",
   "8cUrCtsnf3orqo94fDAgWWXVK6GY3yH68Wub3RdbiwEA",
   "7JtJb3WSTRWxZgmFD7BSgMLtQ1NHKvAjt9LpErTTDfaF",
-  "3NoD3EWG5aS5yxMTiPdwzWataj37MQfzC5o6jvzEGSDA",
-  "2cUufaVUiCB48QjgLGvCZFUVjnJEHZruPBnWWdTfaXGZ",
 ];
 
 let cached: SupplyResponse | null = null;
