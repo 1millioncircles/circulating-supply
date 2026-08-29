@@ -7,14 +7,7 @@ const MINT_ADDRESS = "Aea8zJW7jp1wkct3BjMeekBC1RQnHQyrvNutigc3pump";
 
 // Streamflow vault token accounts
 const STREAMFLOW_VAULTS: string[] = [
-  "3D3M6tuDkrfpcamyN9Sd6BpxWpQXtqgj9EH4zhhvUauF",
-  "FDnZoR6TfTrdtHoJ3LnxdWuKu7AmVLqHNyncB15Kc3L5",
-  "saRxDE8f2TYsU8TkiZkRyZntXWht9wTbcmsrqdS6dcF",
-  "2nDKbjB5ztsewvUfXF3GuEbFhDFVxDQrTkHZ9ExiwPt6",
-  "DBm691avcmV45wTKhyEq2T1g1pHYuKjrQ1k2EKwCwoq3",
-  "2LAk19b53kdGyvYq6igWr1QucMq2kDp9Vi8JMjiBTqVQ",
-  "8cUrCtsnf3orqo94fDAgWWXVK6GY3yH68Wub3RdbiwEA",
-  "7JtJb3WSTRWxZgmFD7BSgMLtQ1NHKvAjt9LpErTTDfaF",
+  "He4W93LU4F1zjc8tn5yq6Lb1g5vLYjwAF7w83yeDm8i7",
 ];
 
 let cached: SupplyResponse | null = null;
